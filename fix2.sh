@@ -124,11 +124,10 @@ systemctl enable acme-sh
 systemctl restart acme-sh
 
 print_status "Waiting for acme-sh to come up..."
-until docker exec -it acme-sh --list
-do
-  echo ".."
-  sleep 15
-done
+#until docker exec -it acme-sh --list
+#do
+  sleep 60
+#done
 
 print_status "Issusing cert for $fqdn..."
 docker exec acme-sh --issue -d $fqdn  --standalone
